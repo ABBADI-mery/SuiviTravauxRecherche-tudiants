@@ -70,10 +70,10 @@ public class Test {
             System.out.println("Travail ID: " + er.getTravail_id().getId() + ", Etudiant ID: " + er.getEtudiant_id().getId() + ", Professeur: " + er.getProfesseur());
         }
 
-        EncadrementRecherche encadrementToDelete = ers.findAll().get(1);
-        ers.delete(encadrementToDelete);
-        System.out.println("\nEncadrement supprimé : Travail ID " + encadrementToDelete.getTravail_id().getId()
-                + " - Etudiant ID " + encadrementToDelete.getEtudiant_id().getId() + " - Professeur: " + encadrementToDelete.getProfesseur());
+        EncadrementRecherche encadrementSupprime = ers.findAll().get(1);
+        ers.delete(encadrementSupprime );
+        System.out.println("\nEncadrement supprimé : Travail ID " + encadrementSupprime .getTravail_id().getId()
+                + " - Etudiant ID " + encadrementSupprime .getEtudiant_id().getId() + " - Professeur: " + encadrementSupprime .getProfesseur());
 
         System.out.println("\nEncadrements restants :");
         for (EncadrementRecherche er : ers.findAll()) {

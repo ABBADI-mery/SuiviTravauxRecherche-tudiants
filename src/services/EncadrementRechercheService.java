@@ -81,7 +81,7 @@ public class EncadrementRechercheService implements IDao<EncadrementRecherche> {
 
     @Override
     public EncadrementRecherche findById(int id) {
-        // Cette méthode n'est pas applicable car EncadrementRecherche n'a pas d'ID unique.
+        // Une classe d'association est souvent définie par une clé composée (les identifiants des entités qu'elle relie).une classe d'association n'a généralement pas d'ID propre
         return null;
     }
 

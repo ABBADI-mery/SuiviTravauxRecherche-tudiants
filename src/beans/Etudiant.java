@@ -16,7 +16,7 @@ public class Etudiant {
     private String prenom;
     private String email;
 
-    // Constructeur
+  
     public Etudiant(int id, String nom, String prenom, String email) {
         this.id = id;
         this.nom = nom;
@@ -30,7 +30,7 @@ public class Etudiant {
         this.email = email;
     }
 
-    // Getters et Setters
+   
     public int getId() {
         return id;
     }

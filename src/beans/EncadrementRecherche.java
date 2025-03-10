@@ -11,30 +11,30 @@ package beans;
  */
 public class EncadrementRecherche {
 
-    private TravailRecherche travail;
-    private Etudiant etudiant;
+    private TravailRecherche travail_id;
+    private Etudiant etudiant_id;
     private String professeur;
 
-    public EncadrementRecherche(TravailRecherche travail, Etudiant etudiant, String professeur) {
-        this.travail = travail;
-        this.etudiant = etudiant;
+    public EncadrementRecherche(TravailRecherche travail_id, Etudiant etudiant_id, String professeur) {
+        this.travail_id = travail_id;
+        this.etudiant_id = etudiant_id;
         this.professeur = professeur;
     }
 
-    public TravailRecherche getTravail() {
-        return travail;
+    public TravailRecherche getTravail_id() {
+        return travail_id;
     }
 
-    public void setTravail(TravailRecherche travail) {
-        this.travail = travail;
+    public void setTravail_id(TravailRecherche travail_id) {
+        this.travail_id = travail_id;
     }
 
-    public Etudiant getEtudiant() {
-        return etudiant;
+    public Etudiant getEtudiant_id() {
+        return etudiant_id;
     }
 
-    public void setEtudiant(Etudiant etudiant) {
-        this.etudiant = etudiant;
+    public void setEtudiant_id(Etudiant etudiant_id) {
+        this.etudiant_id = etudiant_id;
     }
 
     public String getProfesseur() {
@@ -44,4 +44,5 @@ public class EncadrementRecherche {
     public void setProfesseur(String professeur) {
         this.professeur = professeur;
     }
+
 }

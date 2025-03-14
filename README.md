@@ -1,38 +1,34 @@
-Suivi des Travaux de Recherche des Étudiants
-Le Suivi des Travaux de Recherche des Étudiants est un système permettant de gérer et de suivre les travaux de recherche réalisés par les étudiants sous la supervision d'un professeur.
+# Suivi des Travaux de Recherche des Étudiants
 
-Fonctionnalités du Système:
-1.Ajouter un travail de recherche
+## Description
 
-Un administrateur ou un professeur peut ajouter un nouveau travail de recherche en renseignant son titre, sa description et sa période (date de début et date de fin).
+Le Suivi des Travaux de Recherche des Étudiants est un système conçu pour simplifier la gestion et le suivi des travaux de recherche réalisés par les étudiants sous la supervision d'un professeur. Il offre une plateforme centralisée pour organiser les informations, suivre l'avancement et faciliter la communication entre les étudiants et les professeurs.
 
-2.Associer un étudiant et un professeur à un travail de recherche
+## Fonctionnalités
 
-Une fois un travail ajouté, il peut être attribué à un étudiant, et un professeur responsable sera désigné pour l'encadrement.
+* **Ajouter un travail de recherche** : Les administrateurs ou les professeurs peuvent créer de nouveaux projets en spécifiant le titre, la description et la période (dates de début et de fin).
+* **Associer un étudiant et un professeur à un travail de recherche** : Une fois un projet créé, il peut être attribué à un étudiant, et un professeur responsable est désigné pour l'encadrement.
+* **Filtrer par professeur** : Un filtre permet d'afficher uniquement les travaux supervisés par un professeur spécifique, facilitant ainsi la gestion du suivi.
+* **Rechercher un travail par titre** : Une fonctionnalité de recherche permet de trouver rapidement un travail en saisissant son titre ou une partie de celui-ci.
 
-3.Filtrer par professeur
+## Structure de la Base de Données
 
-Un filtre permet d’afficher uniquement les travaux supervisés par un professeur donné, ce qui facilite la gestion du suivi des recherches.
+Le système repose sur trois tables principales :
 
-4.Rechercher un travail par titre
+1.  **TravailRecherche** : Informations sur les travaux de recherche (id, titre, description, dates de début et de fin).
+2.  **Étudiant** : Informations sur les étudiants (id, nom, prénom, email).
+3.  **EncadrementRecherche** : Lien entre les travaux, les étudiants et les professeurs (travail_id, etudiant_id, professeur).
 
-Une fonctionnalité de recherche permet de retrouver rapidement un travail de recherche en tapant son titre ou une partie du titre.
- 
- 
- Structure de la Base de Données:
- Ce système repose sur trois tables principales :
+### Schéma de la Base de Données
 
-1.TravailRecherche : Cette table contient les informations sur les travaux de recherche, notamment l'id, le titre, la description, la date de début et la date de fin.
-2.Étudiant : Cette table stocke les informations des étudiants, avec un id, un nom, un prénom et un email.
-3.EncadrementRecherche : Cette table fait le lien entre les travaux de recherche, les étudiants et les professeurs.
-
-
+```sql
 CREATE TABLE etudiant (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     prenom VARCHAR(255) NULL,
     email VARCHAR(255) NOT NULL UNIQUE
 );
+
 CREATE TABLE travailrecherche (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(255) NOT NULL,
@@ -40,6 +36,7 @@ CREATE TABLE travailrecherche (
     dateDebut DATE NULL,
     dateFin DATE NULL
 );
+
 CREATE TABLE encadrementrecherche (
     travail_id INT(11) NOT NULL,
     etudiant_id INT(11) NOT NULL,

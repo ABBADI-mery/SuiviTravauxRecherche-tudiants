@@ -21,10 +21,10 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 * **Optimiser la recherche :** Permettre une recherche efficace des travaux par titre et un filtrage par professeur.
 
 ## Diagramme use case 
-![Diagramme use case ](src/images/use case.png)
+![Diagramme use case ](src/images/useCase.png)
 
 ## Diagramme de classe
-[Diagramme de classe](src/images/classe.png)
+![Diagramme de classe](src/images/classe.png)
 
 
 ## Architecture

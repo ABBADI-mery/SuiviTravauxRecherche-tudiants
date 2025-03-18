@@ -135,30 +135,58 @@ public class MDIApplication extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AffectationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AffectationMenuItemActionPerformed
+
         EncadrementRechercheForm erf = new EncadrementRechercheForm();
         desktopPane.add(erf);
         erf.setVisible(true);
+        try {
+            erf.setMaximum(true);
+            erf.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_AffectationMenuItemActionPerformed
 
     private void TravailMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TravailMenuItemActionPerformed
+
         TravailRechercheForm trf = new TravailRechercheForm();
         desktopPane.add(trf);
         trf.setVisible(true);
+        try {
+            trf.setMaximum(true); // Maximiser la frame
+            trf.setSelected(true); // Sélectionner la frame (optionnel)
+        } catch (java.beans.PropertyVetoException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_TravailMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         // TODO add your handling code here:
+
         EtudiantForm ef = new EtudiantForm();
         desktopPane.add(ef);
         ef.setVisible(true);
+        try {
+            ef.setMaximum(true);
+            ef.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            e.printStackTrace();
+        }
 
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
         // TODO add your handling code here:
+
         FilterByProfesseur fbp = new FilterByProfesseur();
         desktopPane.add(fbp);
         fbp.setVisible(true);
+        try {
+            fbp.setMaximum(true);
+            fbp.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            e.printStackTrace();
+        }
 
     }//GEN-LAST:event_copyMenuItemActionPerformed
 
@@ -168,9 +196,16 @@ public class MDIApplication extends javax.swing.JFrame {
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
+
         TravailByTitre trbt = new TravailByTitre();
         desktopPane.add(trbt);
         trbt.setVisible(true);
+        try {
+            trbt.setMaximum(true);
+            trbt.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     /**

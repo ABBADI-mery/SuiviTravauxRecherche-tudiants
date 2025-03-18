@@ -16,7 +16,6 @@ public class Etudiant {
     private String prenom;
     private String email;
 
-  
     public Etudiant(int id, String nom, String prenom, String email) {
         this.id = id;
         this.nom = nom;
@@ -30,7 +29,6 @@ public class Etudiant {
         this.email = email;
     }
 
-   
     public int getId() {
         return id;
     }
@@ -63,4 +61,8 @@ public class Etudiant {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(id);
+    }
 }

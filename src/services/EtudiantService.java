@@ -97,4 +97,21 @@ public class EtudiantService implements IDao<Etudiant> {
         }
         return etudiants;
     }
+
+    public Iterable<String> getAllEtudiants() {
+        List<String> nomsEtudiants = new ArrayList<>();
+        String req = "SELECT nom, prenom FROM Etudiant";  // Modifié pour inclure le prénom
+        try (PreparedStatement ps = connexion.getCn().prepareStatement(req);
+                ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                // Ajout du nom et du prénom dans la liste
+                String nomPrenom = rs.getString("nom") + " " + rs.getString("prenom");
+                nomsEtudiants.add(nomPrenom);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return nomsEtudiants;
+    }
+
 }

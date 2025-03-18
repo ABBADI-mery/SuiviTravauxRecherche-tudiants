@@ -74,4 +74,9 @@ public class TravailRecherche {
         this.dateFin = dateFin;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(id);
+    }
+
 }

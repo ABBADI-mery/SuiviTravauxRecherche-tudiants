@@ -108,4 +108,46 @@ public class TravailRechercheService implements IDao<TravailRecherche> {
         }
         return travaux;
     }
+
+    public List<TravailRecherche> searchByTitle(String titre) { // Correction de la faute de frappe et changement du type de retour
+        String req = "SELECT * FROM TravailRecherche WHERE titre = ?";
+        List<TravailRecherche> travaux = new ArrayList<>(); // Initialisation de la liste des travaux
+
+        try {
+            PreparedStatement ps = connexion.getCn().prepareStatement(req);
+            ps.setString(1, titre);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) { // Utilisation de while pour récupérer tous les résultats
+                TravailRecherche travail = new TravailRecherche(
+                        rs.getInt("id"),
+                        rs.getString("titre"),
+                        rs.getString("description"),
+                        rs.getDate("dateDebut"),
+                        rs.getDate("dateFin")
+                );
+                travaux.add(travail); // Ajout du travail à la liste
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return travaux; // Retour de la liste des travaux
+    }
+
+    public List<String> getAllTitres() {
+        List<String> titres = new ArrayList<>();
+        String req = "SELECT titre FROM TravailRecherche";
+
+        try (PreparedStatement ps = connexion.getCn().prepareStatement(req);
+                ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                titres.add(rs.getString("titre"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erreur lors de la récupération des titres : " + ex.getMessage());
+        }
+
+        return titres;
+    }
+
 }

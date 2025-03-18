@@ -38,8 +38,8 @@ public class EncadrementRechercheService implements IDao<EncadrementRecherche> {
         try {
             PreparedStatement ps = connexion.getCn().prepareStatement(req);
             ps.setInt(1, o.getTravail_id().getId());
-            ps.setInt(2, o.getEtudiant_id().getId()); 
-            ps.setString(3, o.getProfesseur()); 
+            ps.setInt(2, o.getEtudiant_id().getId());
+            ps.setString(3, o.getProfesseur());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -102,5 +102,40 @@ public class EncadrementRechercheService implements IDao<EncadrementRecherche> {
             System.out.println(ex.getMessage());
         }
         return encadrements;
+    }
+
+    public List<String> getAllProfesseurs() {
+        List<String> professeurs = new ArrayList<>();
+        String req = "SELECT DISTINCT professeur FROM EncadrementRecherche";
+        try (PreparedStatement ps = connexion.getCn().prepareStatement(req);
+                ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                professeurs.add(rs.getString("professeur"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return professeurs;
+    }
+
+    public List<Object[]> getTravauxEtudiantsParProfesseur(String professeur) {
+        List<Object[]> resultats = new ArrayList<>();
+        String req = "SELECT e.nom, e.prenom, tr.titre "
+                + "FROM EncadrementRecherche er "
+                + "JOIN Etudiant e ON er.etudiant_id = e.id "
+                + "JOIN TravailRecherche tr ON er.travail_id = tr.id "
+                + "WHERE er.professeur = ?";
+
+        try (PreparedStatement ps = connexion.getCn().prepareStatement(req)) {
+            ps.setString(1, professeur);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Object[] ligne = {rs.getString("nom"), rs.getString("prenom"), rs.getString("titre")};
+                resultats.add(ligne);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultats;
     }
 }

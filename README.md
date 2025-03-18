@@ -78,7 +78,7 @@ CREATE TABLE encadrementrecherche (
     FOREIGN KEY (etudiant_id) REFERENCES etudiant(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE utilisateur (
+CREATE TABLE user (
     login VARCHAR(255) PRIMARY KEY,
-    mot_de_passe VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL
 );

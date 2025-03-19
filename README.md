@@ -24,7 +24,7 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 ![Diagramme use case ](src/images/useCase.png)
 
 ## Diagramme de classe
-![Diagramme de classe](src/images/classe.png)
+![Diagramme de classe](src/images/diagramme de classe.png)
 
 
 ## Architecture
@@ -41,6 +41,10 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
     * Outil de diagramme : MagicDraw
     * Outil de gestion de base de données : phpMyAdmin
 * **Accès aux données :** JDBC
+
+##   Vidéo sur les interfaces de l'application
+
+[Lien vers mon fichier Google Drive](https://drive.google.com/drive/folders/1iol9U6Yd0CNXnGVL7ms_3eK2waZPwkh2?usp=sharing)
 
 ## Structure de la Base de Données
 
@@ -80,5 +84,7 @@ CREATE TABLE encadrementrecherche (
 
 CREATE TABLE user (
     login VARCHAR(255) PRIMARY KEY,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    securityQuestion VARCHAR(255),
+    securityAnswer	VARCHAR(255)
 );

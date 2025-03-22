@@ -28,8 +28,8 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 
 
 ## Architecture
+ ![Architecture du projet](src/images/archetecture.png)
 
- ![Architecture du projet](src/images/arch final.png)
 ## Technologies
 
 * **Langage :** Java

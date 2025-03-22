@@ -28,7 +28,7 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 
 
 ## Architecture
-[🎥 Voir la vidéo](https://drive.google.com/file/d/1Q00yF76gkblq0gy_2lolnYGZen17O7SU/view?usp=drive_link)
+[Architecture](src/images/archetecture.png)
 
 
 ## Technologies
@@ -45,7 +45,7 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 
 ##   Vidéo sur les interfaces de l'application
 
-[Lien vers mon fichier Google Drive](https://drive.google.com/drive/folders/1A7fjDE2WgJrZpOAp1LGVkc6wyDWEZq3T)
+[Lien vers mon fichier Google Drive](https://drive.google.com/file/d/1Q00yF76gkblq0gy_2lolnYGZen17O7SU/view?usp=drive_link)
 
 ## Structure de la Base de Données
 

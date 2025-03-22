@@ -19,17 +19,32 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
     private EtudiantService es;
     private DefaultTableModel model;
     private static int id;
+    private static EtudiantForm instance;
 
     /**
      * Creates new form EtudiantForm
      */
-    public EtudiantForm() {
+    private EtudiantForm() {
+        super("Gestion des étudiants", true, true, true, true);
+        setSize(400, 300);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         initComponents();
         es = new EtudiantService();
-        this.setTitle("Gestion des étudiants");
         model = (DefaultTableModel) listeEtudiants.getModel();
 
         loadEtudiant();
+
+    }
+
+    public static EtudiantForm getInstance() {
+        if (instance == null || instance.isClosed()) {
+            synchronized (EtudiantForm.class) { // Synchronisez pour la sécurité des threads
+                if (instance == null || instance.isClosed()) {
+                    instance = new EtudiantForm();
+                }
+            }
+        }
+        return instance;
     }
 
     void loadEtudiant() {
@@ -284,4 +299,5 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNom;
     private javax.swing.JTextField txtPrenom;
     // End of variables declaration//GEN-END:variables
+
 }

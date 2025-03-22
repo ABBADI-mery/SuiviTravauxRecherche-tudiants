@@ -5,6 +5,11 @@
  */
 package gui;
 
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+
 /**
  *
  * @author pc
@@ -136,76 +141,99 @@ public class MDIApplication extends javax.swing.JFrame {
 
     private void AffectationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AffectationMenuItemActionPerformed
 
-        EncadrementRechercheForm erf = new EncadrementRechercheForm();
-        desktopPane.add(erf);
-        erf.setVisible(true);
-        try {
-            erf.setMaximum(true);
-            erf.setSelected(true);
-        } catch (java.beans.PropertyVetoException e) {
-            e.printStackTrace();
+        EncadrementRechercheForm erf = EncadrementRechercheForm.getInstance();
+        if (!erf.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(erf);
+            erf.setVisible(true);
+            try {
+                erf.setMaximum(true);
+                erf.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                e.printStackTrace();
+            }
         }
+
     }//GEN-LAST:event_AffectationMenuItemActionPerformed
 
     private void TravailMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TravailMenuItemActionPerformed
 
-        TravailRechercheForm trf = new TravailRechercheForm();
-        desktopPane.add(trf);
-        trf.setVisible(true);
-        try {
-            trf.setMaximum(true); // Maximiser la frame
-            trf.setSelected(true); // Sélectionner la frame (optionnel)
-        } catch (java.beans.PropertyVetoException e) {
-            e.printStackTrace();
+        TravailRechercheForm trf = TravailRechercheForm.getInstance();
+        if (!trf.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(trf);
+            trf.setVisible(true);
+            try {
+                trf.setMaximum(true);
+                trf.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                e.printStackTrace();
+            }
         }
+
     }//GEN-LAST:event_TravailMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         // TODO add your handling code here:
+        EtudiantForm ef = EtudiantForm.getInstance(); // Utiliser getInstance()
 
-        EtudiantForm ef = new EtudiantForm();
-        desktopPane.add(ef);
-        ef.setVisible(true);
-        try {
-            ef.setMaximum(true);
-            ef.setSelected(true);
-        } catch (java.beans.PropertyVetoException e) {
-            e.printStackTrace();
+        if (!ef.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(ef);
+            ef.setVisible(true);
+            try {
+                ef.setMaximum(true);
+                ef.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                e.printStackTrace();
+            }
         }
-
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
         // TODO add your handling code here:
 
-        FilterByProfesseur fbp = new FilterByProfesseur();
-        desktopPane.add(fbp);
-        fbp.setVisible(true);
-        try {
-            fbp.setMaximum(true);
-            fbp.setSelected(true);
-        } catch (java.beans.PropertyVetoException e) {
-            e.printStackTrace();
+        FilterByProfesseur fbp = FilterByProfesseur.getInstance();
+        if (!fbp.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(fbp);
+            fbp.setVisible(true);
+            try {
+                fbp.setMaximum(true);
+                fbp.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                e.printStackTrace();
+            }
         }
+
 
     }//GEN-LAST:event_copyMenuItemActionPerformed
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
         // TODO add your handling code here:
+
+        GraphiqueTravauxFrame graphiqueFrame = new GraphiqueTravauxFrame();
+        desktopPane.add(graphiqueFrame);
+        try {
+
+            graphiqueFrame.setMaximum(true);
+        } catch (java.beans.PropertyVetoException e) {
+            e.printStackTrace();
+        }
+        graphiqueFrame.setVisible(true);
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
 
-        TravailByTitre trbt = new TravailByTitre();
-        desktopPane.add(trbt);
-        trbt.setVisible(true);
-        try {
-            trbt.setMaximum(true);
-            trbt.setSelected(true);
-        } catch (java.beans.PropertyVetoException e) {
-            e.printStackTrace();
+        TravailByTitre trbt = TravailByTitre.getInstance();
+        if (!trbt.isVisible()) { // Vérifier si la fenêtre est déjà affichée
+            desktopPane.add(trbt);
+            trbt.setVisible(true);
+            try {
+                trbt.setMaximum(true);
+                trbt.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                e.printStackTrace();
+            }
         }
+
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     /**

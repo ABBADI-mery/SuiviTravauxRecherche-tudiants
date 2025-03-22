@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package services;
 
 import beans.User;
@@ -16,6 +11,10 @@ import java.sql.SQLException;
 import java.util.Random;
 import java.util.Base64;
 import javax.swing.JOptionPane;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 /**
  *
@@ -31,13 +30,14 @@ public class UserService implements IUserDao {
 
     @Override
     public boolean addUser(User user) {
-        String req = "INSERT INTO user (login, password, securityQuestion, securityAnswer) VALUES (?, SHA1(?), ?, SHA1(?))";
+        String req = "INSERT INTO user (login, password, securityQuestion, securityAnswer, email) VALUES (?, SHA1(?), ?, SHA1(?), ?)";
         try {
             PreparedStatement ps = connexion.getCn().prepareStatement(req);
             ps.setString(1, user.getLogin());
             ps.setString(2, user.getPassword()); // Mot de passe en clair
             ps.setString(3, user.getSecurityQuestion());
             ps.setString(4, user.getSecurityAnswer()); // Réponse secrète en clair
+            ps.setString(5, user.getEmail());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -58,7 +58,8 @@ public class UserService implements IUserDao {
                         rs.getString("login"),
                         rs.getString("password"),
                         rs.getString("securityQuestion"),
-                        rs.getString("securityAnswer")
+                        rs.getString("securityAnswer"),
+                        rs.getString("email")
                 );
             }
         } catch (SQLException ex) {
@@ -94,7 +95,7 @@ public class UserService implements IUserDao {
                 if (rs.next()) {
                     String newPassword = generateTemporaryPassword();
                     if (updatePassword(login, newPassword)) {
-                        JOptionPane.showMessageDialog(null, "Votre nouveau mot de passe est : " + newPassword);
+                        sendPasswordByEmail(user.getEmail(), newPassword);
                         return true;
                     }
                 } else {
@@ -137,5 +138,36 @@ public class UserService implements IUserDao {
             sb.append(chars.charAt(random.nextInt(chars.length())));
         }
         return sb.toString();
+    }
+
+    private void sendPasswordByEmail(String recipientEmail, String newPassword) {
+        try {
+            String username = "mrymbady525@gmail.com"; //ma  adresse e-mail
+            String password = "vnof wckx klzx jykd"; // j'ai creer un  mot de passe de l'application
+
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com"); 
+            props.put("mail.smtp.port", "587"); 
+
+            Session session = Session.getInstance(props, new Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);
+                }
+            });
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+            message.setSubject("Réinitialisation de votre mot de passe");
+            message.setText("Votre nouveau mot de passe est : " + newPassword);
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(null, "Un nouveau mot de passe a été envoyé à votre adresse e-mail.");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erreur lors de l'envoi de l'e-mail.");
+        }
     }
 }

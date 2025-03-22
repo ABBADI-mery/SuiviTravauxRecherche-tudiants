@@ -18,17 +18,30 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
 
     private TravailRechercheService trs;
     private DefaultTableModel model;
+     private static TravailByTitre  instance;
 
     /**
      * Creates new form TravailByTitre
      */
-    public TravailByTitre() {
+    private TravailByTitre() {
+        super("Chercher travail par titre", true, true, true, true);
+        setSize(400, 300);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         initComponents();
-        this.setTitle("Chercher travail par titre");
         trs = new TravailRechercheService();
         model = (DefaultTableModel) listTravaux.getModel();
         load();
         loadTitres();
+    }
+    public static  TravailByTitre getInstance() {
+        if (instance == null || instance.isClosed()) {
+            synchronized ( TravailByTitre.class) { // Synchronisez pour la sécurité des threads
+                if (instance == null || instance.isClosed()) {
+                    instance = new  TravailByTitre();
+                }
+            }
+        }
+        return instance;
     }
 
     public void load() {
@@ -56,6 +69,7 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         listTitre = new javax.swing.JComboBox();
@@ -63,6 +77,8 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listTravaux = new javax.swing.JTable();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setClosable(true);
         setIconifiable(true);
@@ -191,6 +207,7 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

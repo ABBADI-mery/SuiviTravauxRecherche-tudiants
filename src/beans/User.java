@@ -13,16 +13,17 @@ public class User {
 
     private String login;
     private String password;
-
     private String securityQuestion;
     private String securityAnswer;
+    private String email;
 
-    public User(String login, String password, String securityQuestion, String securityAnswer) {
+    public User(String login, String password, String securityQuestion, String securityAnswer, String email) {
         this.login = login;
         this.password = password;
 
         this.securityQuestion = securityQuestion;
         this.securityAnswer = securityAnswer;
+        this.email = email;
     }
 
     public String getLogin() {
@@ -57,9 +58,17 @@ public class User {
         this.securityAnswer = securityAnswer;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "login=" + login + ", password=" + password + ", securityQuestion=" + securityQuestion + ", securityAnswer=" + securityAnswer + '}';
+        return "User{" + "login=" + login + ", password=" + password + ", securityQuestion=" + securityQuestion + ", securityAnswer=" + securityAnswer + ", email=" + email + '}';
     }
 
 }

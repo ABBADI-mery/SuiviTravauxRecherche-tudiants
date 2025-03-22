@@ -24,13 +24,16 @@ public class EncadrementRechercheForm extends javax.swing.JInternalFrame {
     private TravailRechercheService trs;
     private EtudiantService es;
     private DefaultTableModel model;
+    private static EncadrementRechercheForm instance;
 
     /**
      * Creates new form EncadrementRechercheForm
      */
-    public EncadrementRechercheForm() {
+    private EncadrementRechercheForm() {
+        super("Gestion des affectations", true, true, true, true);
+        setSize(400, 300);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         initComponents();
-        this.setTitle("Gestion des affectations ");
         es = new EtudiantService();
         trs = new TravailRechercheService();
         ers = new EncadrementRechercheService();
@@ -38,6 +41,18 @@ public class EncadrementRechercheForm extends javax.swing.JInternalFrame {
         loadTravaux();
         model = (DefaultTableModel) listeAffectations.getModel();
         load();
+
+    }
+
+    public static EncadrementRechercheForm getInstance() {
+        if (instance == null || instance.isClosed()) {
+            synchronized (EncadrementRechercheForm.class) { // Synchronisez pour la sécurité des threads
+                if (instance == null || instance.isClosed()) {
+                    instance = new EncadrementRechercheForm();
+                }
+            }
+        }
+        return instance;
     }
 
     public void load() {
@@ -328,34 +343,11 @@ public class EncadrementRechercheForm extends javax.swing.JInternalFrame {
 
     private void listeAffectationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listeAffectationsMouseClicked
         // TODO add your handling code here:
-        String etudiantNomPrenom = model.getValueAt(listeAffectations.getSelectedRow(), 0).toString();
-        String travailTitre = model.getValueAt(listeAffectations.getSelectedRow(), 1).toString();
-        String professeur = model.getValueAt(listeAffectations.getSelectedRow(), 2).toString();
-
-        // Rechercher l'étudiant correspondant par nom et prénom
-        Etudiant etudiantSelectionne = null;
-        for (int i = 0; i < listeEtudiants.getItemCount(); i++) {
-            Etudiant etudiant = (Etudiant) listeEtudiants.getItemAt(i);
-            if ((etudiant.getNom() + " " + etudiant.getPrenom()).equals(etudiantNomPrenom)) {
-                etudiantSelectionne = etudiant;
-                break;
-            }
+        int selectedRow = listeAffectations.getSelectedRow();
+        if (selectedRow != -1) {
+            String professeur = (String) listeAffectations.getValueAt(selectedRow, 2); // 2 est l'indice de la colonne "Professeur encadrant"
+            txtProfesseur.setText(professeur);
         }
-
-        // Rechercher le travail correspondant par titre
-        TravailRecherche travailSelectionne = null;
-        for (int i = 0; i < listeTravaux.getItemCount(); i++) {
-            TravailRecherche travail = (TravailRecherche) listeTravaux.getItemAt(i);
-            if (travail.getTitre().equals(travailTitre)) {
-                travailSelectionne = travail;
-                break;
-            }
-        }
-
-        listeEtudiants.setSelectedItem(etudiantSelectionne);
-        listeTravaux.setSelectedItem(travailSelectionne);
-        txtProfesseur.setText(professeur);
-
 
     }//GEN-LAST:event_listeAffectationsMouseClicked
 

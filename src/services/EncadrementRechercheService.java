@@ -10,11 +10,15 @@ import beans.Etudiant;
 import beans.TravailRecherche;
 import connexion.Connexion;
 import dao.IDao;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -137,5 +141,22 @@ public class EncadrementRechercheService implements IDao<EncadrementRecherche> {
             System.out.println(ex.getMessage());
         }
         return resultats;
+    }
+
+    public CategoryDataset createDataset() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        try (Connection connection = connexion.getCn(); // Utilisez la connexion de Connexion
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT professeur, COUNT(*) AS nombre_travaux FROM EncadrementRecherche GROUP BY professeur")) {
+
+            while (resultSet.next()) {
+                String professeur = resultSet.getString("professeur");
+                int nombreTravaux = resultSet.getInt("nombre_travaux");
+                dataset.addValue(nombreTravaux, "Travaux", professeur);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return dataset;
     }
 }

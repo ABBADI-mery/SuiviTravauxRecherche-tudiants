@@ -24,12 +24,12 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 ![Diagramme use case ](src/images/useCase.png)
 
 ## Diagramme de classe
-![Diagramme de classe](src/images/diagramme de classe.png)
+![Diagramme de classe](src/images/classeDiagramme.png)
 
 
 ## Architecture
 
- ![Architecture du projet](src/images/archetecture.png)
+ ![Architecture du projet](src/images/arch final.png)
 ## Technologies
 
 * **Langage :** Java
@@ -44,7 +44,7 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 
 ##   Vidéo sur les interfaces de l'application
 
-[Lien vers mon fichier Google Drive](https://drive.google.com/drive/folders/1iol9U6Yd0CNXnGVL7ms_3eK2waZPwkh2?usp=sharing)
+[Lien vers mon fichier Google Drive](https://drive.google.com/drive/folders/1A7fjDE2WgJrZpOAp1LGVkc6wyDWEZq3T)
 
 ## Structure de la Base de Données
 
@@ -86,5 +86,6 @@ CREATE TABLE user (
     login VARCHAR(255) PRIMARY KEY,
     password VARCHAR(255) NOT NULL,
     securityQuestion VARCHAR(255),
-    securityAnswer	VARCHAR(255)
+    securityAnswer VARCHAR(255),
+    email VARCHAR(255)
 );

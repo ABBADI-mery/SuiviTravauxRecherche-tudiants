@@ -5,16 +5,12 @@
  */
 package gui;
 
-import beans.User;
+import javax.swing.JOptionPane;
+import java.awt.datatransfer.StringSelection;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import services.UserService;
+import services.UserService; // Assurez-vous d'importer votre classe UserService
+import beans.User;
 
 /**
  *
@@ -240,33 +236,10 @@ public class Main extends javax.swing.JFrame {
                         "Question secrète : " + user.getSecurityQuestion() + "\n\nEntrez votre réponse :");
 
                 if (securityAnswer != null && !securityAnswer.isEmpty()) {
+                    // Utilisation de la méthode resetPasswordBySecurityQuestion modifiée
                     if (userService.resetPasswordBySecurityQuestion(login, securityAnswer)) {
-                        String newPassword = userService.generateTemporaryPassword();
-                        boolean updated = userService.updatePassword(login, newPassword);
-
-                        if (updated) {
-                            // Afficher une boîte de dialogue avec le nouveau mot de passe et un bouton de copie
-                            String message = "Votre nouveau mot de passe est : " + newPassword;
-                            int option = JOptionPane.showOptionDialog(this, message, "Mot de passe réinitialisé", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new String[]{"Copier", "OK"}, "Copier");
-
-                            // Copier le mot de passe si l'utilisateur clique sur "Copier"
-                            if (option == 0) {
-                                StringSelection stringSelection = new StringSelection(newPassword);
-                                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                                clipboard.setContents(stringSelection, null);
-                                JOptionPane.showMessageDialog(this, "Mot de passe copié dans le presse-papiers.");
-                            }
-
-                            // Connexion de l'utilisateur avec le nouveau mot de passe
-                            boolean isAuthenticated = userService.authenticate(login, newPassword);
-                            if (isAuthenticated) {
-                                JOptionPane.showMessageDialog(this, "Mot de passe réinitialisé et connexion réussie.");
-                            } else {
-                                JOptionPane.showMessageDialog(this, "Échec de la connexion après réinitialisation.");
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Erreur lors de la mise à jour du mot de passe.");
-                        }
+                        // L'envoi de l'e-mail est géré dans resetPasswordBySecurityQuestion
+                        JOptionPane.showMessageDialog(this, "Un nouveau mot de passe a été envoyé à votre adresse e-mail.");
                     } else {
                         JOptionPane.showMessageDialog(this, "Réponse incorrecte à la question secrète.");
                     }

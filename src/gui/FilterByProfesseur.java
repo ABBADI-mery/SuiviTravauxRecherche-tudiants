@@ -6,7 +6,6 @@
 package gui;
 
 import java.util.List;
-import javax.swing.JDesktopPane;
 import javax.swing.table.DefaultTableModel;
 import services.EncadrementRechercheService;
 import services.TravailRechercheService;
@@ -20,14 +19,28 @@ public class FilterByProfesseur extends javax.swing.JInternalFrame {
     private EncadrementRechercheService ers = new EncadrementRechercheService();
     private TravailRechercheService trs = new TravailRechercheService();
     private DefaultTableModel model;
+     private static FilterByProfesseur  instance;
 
     /**
      * Creates new form filterByProfesseur
      */
-    public FilterByProfesseur() {
+    private FilterByProfesseur() {
+        super("Filter les travaux de recherche par professeur", true, true, true, true);
+        setSize(400, 300);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         initComponents();
         model = (DefaultTableModel) listET.getModel();
         remplirProfesseurComboBox();
+    }
+    public static FilterByProfesseur getInstance() {
+        if (instance == null || instance.isClosed()) {
+            synchronized (FilterByProfesseur.class) { // Synchronisez pour la sécurité des threads
+                if (instance == null || instance.isClosed()) {
+                    instance = new FilterByProfesseur();
+                }
+            }
+        }
+        return instance;
     }
 
     /**

@@ -21,18 +21,32 @@ public class TravailRechercheForm extends javax.swing.JInternalFrame {
     private TravailRechercheService trs;
     private DefaultTableModel model;
     private static int id;
+    private static TravailRechercheForm instance;
 
     /**
      * Creates new form TravailRechercheForm
      */
-    public TravailRechercheForm() {
+    private TravailRechercheForm() {
+        super("Gestion des travaux de recherche", true, true, true, true);
+        setSize(400, 300);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         initComponents();
-        this.setTitle("Gestion des travaux de recherche");
 
         trs = new TravailRechercheService();
         model = (DefaultTableModel) listeTravailRecherche.getModel();
         load();
 
+    }
+
+    public static TravailRechercheForm getInstance() {
+        if (instance == null || instance.isClosed()) {
+            synchronized (TravailRechercheForm.class) { // Synchronisez pour la sécurité des threads
+                if (instance == null || instance.isClosed()) {
+                    instance = new TravailRechercheForm();
+                }
+            }
+        }
+        return instance;
     }
 
     public void load() {

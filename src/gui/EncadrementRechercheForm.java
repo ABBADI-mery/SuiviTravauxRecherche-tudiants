@@ -136,6 +136,7 @@ public class EncadrementRechercheForm extends javax.swing.JInternalFrame {
 
         btnAdd.setBackground(new java.awt.Color(0, 204, 51));
         btnAdd.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-ajouter-16.png"))); // NOI18N
         btnAdd.setText("Ajouter");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,8 +144,9 @@ public class EncadrementRechercheForm extends javax.swing.JInternalFrame {
             }
         });
 
-        btnUpdate.setBackground(new java.awt.Color(255, 255, 0));
+        btnUpdate.setBackground(new java.awt.Color(245, 245, 136));
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-stylo-16.png"))); // NOI18N
         btnUpdate.setText("Modifier");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +156,7 @@ public class EncadrementRechercheForm extends javax.swing.JInternalFrame {
 
         btnDelete.setBackground(new java.awt.Color(255, 51, 51));
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-supprimer-16.png"))); // NOI18N
         btnDelete.setText("Supprimer");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,7 +215,7 @@ public class EncadrementRechercheForm extends javax.swing.JInternalFrame {
                         .addComponent(txtProfesseur, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(216, 235, 246));
@@ -249,7 +252,7 @@ public class EncadrementRechercheForm extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 152, Short.MAX_VALUE))
+                .addGap(0, 213, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

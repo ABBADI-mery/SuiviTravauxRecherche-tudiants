@@ -85,12 +85,12 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(231, 216, 243));
+        jPanel1.setBackground(new java.awt.Color(170, 201, 228));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Travaux de Recherche : Recherche par Titre"));
 
         jLabel1.setBackground(new java.awt.Color(55, 55, 152));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(75, 10, 119));
+        jLabel1.setForeground(new java.awt.Color(41, 167, 229));
         jLabel1.setText("Selectionner le travail de recherche : ");
 
         listTitre.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +99,7 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-book-reading-50.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-recherche-64.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,7 +110,7 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(171, 171, 171)
@@ -120,9 +120,9 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
+                .addGap(28, 28, 28)
                 .addComponent(listTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -131,7 +131,7 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(229, 216, 238));
+        jPanel2.setBackground(new java.awt.Color(170, 201, 228));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des Travaux de Recherche"));
         jPanel2.setToolTipText("");
 
@@ -159,7 +159,7 @@ public class TravailByTitre extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -1,9 +1,5 @@
 # Suivi des Travaux de Recherche des Étudiants
 
-## Description
-
-Le Suivi des Travaux de Recherche des Étudiants est une application Java Swing conçue pour simplifier la gestion et le suivi des travaux de recherche réalisés par les étudiants sous la supervision d'un professeur. Elle offre une plateforme centralisée pour organiser les informations, suivre l'avancement et faciliter la communication.
-
 
 ## Contexte
 
@@ -24,28 +20,7 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 ![Diagramme use case ](src/images/useCase.png)
 
 ## Diagramme de classe
-![Diagramme de classe](src/images/DiagrammeClasee.png)
-
-
-## Architecture
-[Architecture](src/images/archetecture.png)
-
-
-## Technologies
-
-* **Langage :** Java
-* **Framework d'interface graphique :** Java Swing
-* **Base de données :** MySQL
-* **Bibliothèque graphique :** JFreeChart
-* **Outils de développement :**
-    * IDE Java : NetBeans
-    * Outil de diagramme : MagicDraw
-    * Outil de gestion de base de données : phpMyAdmin
-* **Accès aux données :** JDBC
-
-##   Vidéo sur les interfaces de l'application
-
-[Lien vers mon fichier Google Drive](https://drive.google.com/file/d/1Q00yF76gkblq0gy_2lolnYGZen17O7SU/view?usp=drive_link)
+![Diagramme de classe](src/images/diagrammeClasse.png)
 
 ## Structure de la Base de Données
 
@@ -56,7 +31,7 @@ Le système repose sur quatre tables principales :
 3.  **EncadrementRecherche** : Lien entre les travaux, les étudiants et les professeurs (travail_id, etudiant_id, professeur).
 4.  **Utilisateur** : Informations d'authentification (login, mot de passe).
 
-### Schéma de la Base de Données
+### Script de la Base de Données
 
 ```sql
 CREATE TABLE etudiant (
@@ -90,3 +65,24 @@ CREATE TABLE user (
     securityAnswer VARCHAR(255),
     email VARCHAR(255)
 );
+```
+
+## Architecture
+[Architecture](src/images/archetecture.png)
+
+## Technologies
+
+* **Langage :** Java
+* **Framework d'interface graphique :** Java Swing
+* **Base de données :** MySQL
+* **Bibliothèque graphique :** JFreeChart
+* **Outils de développement :**
+    * IDE Java : NetBeans
+    * Outil de diagramme : MagicDraw
+    * Outil de gestion de base de données : phpMyAdmin
+* **Accès aux données :** JDBC
+
+##   Vidéo sur les interfaces de l'application
+
+
+

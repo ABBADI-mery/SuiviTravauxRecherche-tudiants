@@ -96,6 +96,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
         jLabel3.setText("Email :");
 
         btnAdd.setBackground(new java.awt.Color(118, 224, 154));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-ajouter-16.png"))); // NOI18N
         btnAdd.setText("Ajouter");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +105,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
         });
 
         btnUpdate.setBackground(new java.awt.Color(249, 248, 152));
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-stylo-16.png"))); // NOI18N
         btnUpdate.setText("Modifier");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +114,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
         });
 
         btnDelete.setBackground(new java.awt.Color(247, 72, 72));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-supprimer-16.png"))); // NOI18N
         btnDelete.setText("Supprimer");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +122,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-étudiant-homme-80.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-étudiant-homme-100.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,8 +138,8 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
                         .addGap(39, 39, 39)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,7 +177,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)

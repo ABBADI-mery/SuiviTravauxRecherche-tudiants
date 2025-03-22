@@ -28,7 +28,7 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 
 
 ## Architecture
-[🎥 Voir la vidéo](src/images/demoFinalProjet%20Java.mp4)
+[🎥 Voir la vidéo](https://drive.google.com/file/d/1Q00yF76gkblq0gy_2lolnYGZen17O7SU/view?usp=drive_link)
 
 
 ## Technologies

@@ -68,7 +68,7 @@ CREATE TABLE user (
 ```
 
 ## Architecture
-[Architecture](src/images/archetecture.png)
+![Architecture](src/images/archetecture.png)
 
 ## Technologies
 

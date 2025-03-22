@@ -24,11 +24,12 @@ Actuellement, le suivi des travaux de recherche est réalisé de manière fragme
 ![Diagramme use case ](src/images/useCase.png)
 
 ## Diagramme de classe
-![Diagramme de classe](src/images/classeDiagramme.png)
+![Diagramme de classe](src/images/DiagrammeClasee.png)
 
 
 ## Architecture
- ![Architecture du projet](src/images/archetecture.png)
+[🎥 Voir la vidéo](src/images/demoFinalProjet%20Java.mp4)
+
 
 ## Technologies
 

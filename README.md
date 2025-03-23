@@ -83,7 +83,7 @@ CREATE TABLE user (
 * **Accès aux données :** JDBC
 
 ##   Vidéo sur les interfaces de l'application
-![Vidéo des interfaces de l'application](src/images/les interfaces du projet.mp4)
+![Vidéo des interfaces de l'application](src/images/les interfaces du projet.gif)
  
 
 

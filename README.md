@@ -83,7 +83,10 @@ CREATE TABLE user (
 * **Accès aux données :** JDBC
 
 ##   Vidéo sur les interfaces de l'application
-https://github.com/user-attachments/assets/f7b80735-8814-44f5-a1b1-e5d1c92f172c
+
+
+
+https://github.com/user-attachments/assets/2c67ddd2-3809-403a-bbdb-fb97017c6373
 
 
 
